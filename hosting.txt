@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+        #My site Name
+        ServerAdmin vijayjakhar.vj@gmail.com
+        ServerName upwork.securitytroops.com
+        ServerAlias upwork.securitytroops.com
+        DocumentRoot /var/www/upwork
+
+        Alias /static /var/www/upwork/static
+        <Directory /var/www/upwork/static>
+                Require all granted
+        </Directory>
+        <Directory /var/www/upwork/alpha>
+                <Files wsgi.py>
+                        Require all granted
+                </Files>
+        </Directory>
+
+
+        WSGIDaemonProcess upwork python-home=/var/www/envupwork python-path=/var/www/upwork
+        WSGIProcessGroup upwork
+        WSGIScriptAlias / /var/www/upwork/upwork/wsgi.py
+</VirtualHost>
