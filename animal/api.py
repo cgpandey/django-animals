@@ -8,7 +8,7 @@ from tastypie.authorization import DjangoAuthorization, ReadOnlyAuthorization, A
 from .models import Animals
 
 import urlparse
-
+#this class is used to serialize the data
 class urlencodeSerializer(Serializer):
     formats = ['json', 'jsonp', 'xml', 'yaml', 'html', 'plist', 'urlencode']
     content_types = {
